@@ -1,0 +1,15 @@
+{
+  "name": "emercado-api-main",
+  "version": "1.0.0",
+  "description": "**eMercado** es una plataforma ficticia de comercio electrónico desarrollada con fines educativos. Aquí podrás explorar categorías de productos, ordenar y filtrar resultados, calificar tus compras, gestionar tu carrito de forma dinámica y disfrutar de una experiencia personalizada.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
