@@ -1,50 +1,95 @@
+# 🛍️ eMercado | API
 
-# 🛍️ eMercado
-
-**eMercado** es una plataforma ficticia de comercio electrónico desarrollada con fines educativos. Aquí podrás explorar categorías de productos, ordenar y filtrar resultados, calificar tus compras, gestionar tu carrito de forma dinámica y disfrutar de una experiencia personalizada. 
+**eMercado API** es la capa de backend para la plataforma ficticia de comercio electrónico **eMercado**, diseñada con fines educativos. Proporciona servicios RESTful para manejar autenticación, productos, categorías, carrito de compras y más.
 
 ***Nota:*** Ninguna de las transacciones o datos son reales; todo es simulado para fines de aprendizaje.
 
-![1](https://github.com/user-attachments/assets/c71f0c94-53b2-487a-aa5d-0603e9176a2f)
-![2](https://github.com/user-attachments/assets/3ff73f54-1451-4546-a6e4-3c59342ceeb5)
-![3](https://github.com/user-attachments/assets/43f877f0-7764-43c6-8c17-7fd1dff672b8)
-![4](https://github.com/user-attachments/assets/ea91aff5-f8d8-4807-9130-9ff7d3cdf71b)
-![5](https://github.com/user-attachments/assets/27eb54ea-3f22-47d4-8f74-68e2f5e4a88e)
-![6](https://github.com/user-attachments/assets/7f2cdd9a-e0a0-4dc9-8944-0c806fe01dab)
-
 ## ✔ Funcionalidades
 
-- **Login:** Ingresa con tu nombre de usuario y contraseña para acceder a todas las funcionalidades. Tu sesión permanece activa para una experiencia fluida.
-- **Explora categorías:** Navega por categorías como Autos, Juguetes, Muebles, y más. Ordena por nombre, cantidad de productos o su relevancia.
-- **Filtros avanzados de productos:**
-    - Ordena por precio (ascendente o descendente).
-    - Ordena por relevancia (cantidad de vendidos).
-    - Filtra por rango de precios y busca en tiempo real.
-- **Páginas individuales de productos:**
-    - Detalles completos del producto.
-    - Agrega al carrito o continúa navegando.
-    - Califica productos con estrellas (1-5) y comentarios.
-    - Consulta opiniones y calificaciones de otros usuarios.
-- **Carrito dinámico:**
-    - Visualiza tus productos con precios en dólares o pesos uruguayos.
-    - Modifica cantidades o elimina productos en tiempo real.
-    - Experimenta una actualización automática de precios.
-- **Compra fácil y rápida (ficticia):**
-    - Selecciona forma de entrega (Premium, Express, Standard).
-    - Completa datos de envío y elige forma de pago (tarjeta de crédito o transferencia bancaria).
-    - Revisa un resumen detallado con subtotales y costos totales.
-- **Perfil de usuario:**
-    - Edita tus datos personales y carga tu foto de perfil.
-    - Activa el modo día/noche para personalizar tu experiencia en ciertas páginas en específico.
-- **Seguridad en el acceso:** Si no estás logueado, no podrás acceder manualmente a la plataforma.
+- **Autenticación:** Gestión de usuarios con soporte para inicio de sesión y autenticación mediante JWT.
+- **Gestión de productos:** CRUD para productos, incluyendo detalles, precios, y comentarios.
+- **Categorías:** Navegación y administración de categorías de productos.
+- **Carrito de compras:** Operaciones dinámicas para agregar, eliminar y visualizar productos en el carrito.
+- **Ventas:** Simulación de procesos de compra y manejo de transacciones ficticias.
+
+## 🛠️ Requisitos previos
+
+- [Node.js](https://nodejs.org) versión 22 o superior.
+- [MariaDB](https://mariadb.org/) configurado y en funcionamiento.
+
+## 🚀 Instalación y configuración
+
+### 1. Clona el repositorio
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd e-mercado-api
+```
+
+### 2. Instala las dependencias
+
+```bash
+npm install
+```
+
+### 3. Configura las variables de entorno (Opcional)
+
+Crea un archivo `.env` y completa los valores necesarios:
+```bash
+# Configuración del servidor
+PORT = 3000
+
+# Clave secreta para JWT
+SECRET_KEY = claveultrasecreta
+
+# Configuración de base de datos
+DB_HOST=localhost
+DB_USER=user_db
+DB_PASSWORD=password_db
+DB_NAME=name_db
+DB_PORT=XXXX
+DB_CONN_LIMIT=X
+
+# Configuración del token JWT
+JWT_EXPIRES_IN = 1h
+```
+
+### 4. Configura la base de datos
+
+1. Importa el script SQL proporcionado en el repositorio para configurar la base de datos. El archivo se encuentra en la carpeta:
+    ```bash
+    mariadb/ecommerce.sql
+    ```
+
+2. Ejecuta el script en tu instancia de MariaDB.
+
+### 5. Inicia el servidor
+
+Ejecuta el siguiente comando para iniciar la aplicación:
+
+```bash
+npm run dev
+```
+
+La API estará disponible en `http://localhost:3000`.
+
+## 📂 Estructura del proyecto
+
+- `app.js -` Archivo principal para iniciar la aplicación.
+- `routes/` - Definición de rutas para los diferentes endpoints.
+- `controllers/` - Lógica para manejar las solicitudes de cada ruta.
+- `models/` - Definición de las entidades y conexión con la base de datos.
+- `mariadb/ecommerce.sql` - Script SQL para configurar la base de datos.
+- `postman/` - Carpeta con colecciones de Postman para probar los endpoints de la API.
+  - `e-Mercado API Endpoints.postman_collection.json` - Colección de pruebas para los endpoints de la API.
 
 ## 🛠️ Construido con
 
-- [![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Lenguaje de programación para desarrollar funciones interactivas en páginas web.
-- [![HTML_5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://html.com/) -Lenguaje de marcado para estructurar y presentar contenido en la web.
-- [![CSS_3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/Overview.en.html) - Lenguaje de diseño para estilizar páginas web.
-- [![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/) - Framework multiplataforma de código abierto para diseño de sitios y aplicaciones web.
-
+- [![Node.js](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org) - Entorno de ejecución para JavaScript en el lado del servidor.
+- [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/) - Framework para construir aplicaciones web y APIs.
+- [![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)](https://mariadb.org/) - Sistema de gestión de bases de datos.
+- [![JSON Web Tokens](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/) - Autenticación basada en tokens.
+- [![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](https://www.postman.com/) - Herramienta para probar y documentar APIs.
 
 ## 💻 Desarrollado por
 
